@@ -2,5 +2,6 @@
   "name": "Kibby",
   "version": "1.0.0",
   "dependencies": {
+    "firebase": "^10.6.0"
   }
 }

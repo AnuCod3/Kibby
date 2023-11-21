@@ -22,3 +22,8 @@ server.listen(port, function (error) {
         console.log('Server hört auf den Port ' + port)
     }
 })
+
+
+// Gitbhub einrichten
+// Playlist von Web Dev anschauen
+// 2fka dc
