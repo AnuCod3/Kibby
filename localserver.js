@@ -2,9 +2,9 @@ const http = require('http')
 const fs = require('fs')
 const port = 3000
 
-const server = http.createServer(function(req, res) {
+const localserver = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'})
-    fs.readFile('index.html', function (error, data) {
+    fs.readFile('localserver.html', function (error, data) {
         if(error) {
             res.writeHead(404)
             res.write('Fehler: Datei nicht gefunden')
@@ -15,7 +15,7 @@ const server = http.createServer(function(req, res) {
     })
 })
 
-server.listen(port, function (error) {
+localserver.listen(port, function (error) {
     if (error) {
         consol.log('Fehler ist aufgetreten', error)
     } else {
@@ -24,6 +24,5 @@ server.listen(port, function (error) {
 })
 
 
-// Gitbhub einrichten
 // Playlist von Web Dev anschauen
 // 2fka dc
