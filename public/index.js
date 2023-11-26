@@ -26,25 +26,13 @@ function writeUserData(userId, name, email, imageUrl) { // setUserData
     const reference = ref(db, 'users/' + userId);
 
     set(reference, {
-        username: name, email: email, profile_picture: imageUrl
+        email: email, username: name,  profile_picture: imageUrl
     });
 }
 
-/*const dbRef = ref(getDatabase());
-get(child(dbRef, `users/`)).then((snapshot) => { // getAllData
-    if (snapshot.exists()) {
-        console.log(snapshot.val());
-    } else {
-        console.log("No data available");
-    }
-}).catch((error) => {
-    console.error(error);
-});*/
+const dbRef = ref(getDatabase());
 
 function getUserData(userId) { // getUserData
-
-    const reference = ref(db, 'users/' + userId);
-
     get(child(dbRef, `users/` + userId)).then((snapshot) => { // getData
         if (snapshot.exists()) {
             console.log(snapshot.val());
@@ -57,6 +45,29 @@ function getUserData(userId) { // getUserData
 }
 
 
-writeUserData("1", "Kiliann", "kilian@hnbk-schule.de", "myimageurl");
-writeUserData("2", "penis", "kilian@hnbk-schule.de", "myimageurl");
-getUserData("2");
+function getALlUserData() { // getAllData
+    get(child(dbRef, `users/`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val());
+        } else {
+            console.log("No data available");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+}
+
+
+
+
+/*
+writeUserData("1", "Kilian", "kilian@hnbk-schule.de", "myimageurl"); // Creating Users
+writeUserData("2", "Philip", "Philip@hnbk-schule.de", "myimageurl");
+writeUserData("3", "Leo", "Leo@hnbk-schule.de", "myimageurl");
+writeUserData("4", "Thrishan", "Thrishan@hnbk-schule.de", "myimageurl")
+writeUserData("5", "Anusan", "Anusan@hnbk-schule.de", "myimageurl")
+*/
+
+//getUserData("2"); // getting certain user
+//getALlUserData(); // getting every user
+
