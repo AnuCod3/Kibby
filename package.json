@@ -4,6 +4,7 @@
   "main": "public/index.js",
   "type": "module",
   "dependencies": {
-    "firebase": "^10.6.0"
+    "firebase": "^10.6.0",
+    "pg": "^8.11.3"
   }
 }

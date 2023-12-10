@@ -71,3 +71,11 @@ writeUserData("5", "Anusan", "Anusan@hnbk-schule.de", "myimageurl")
 //getUserData("2"); // getting certain user
 //getALlUserData(); // getting every user
 
+/*
+TODO:
+ 1. Database Dashboard visualization
+ 2. Dashboard Features wie add, del, alter (spezifische Attribute)
+ 3. Dashboard Design
+ 4. Playlist von WebDev anschauen
+ */
+
