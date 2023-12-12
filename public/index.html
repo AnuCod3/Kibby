@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>login</title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.6.0/firebase-app-compat.js"></script>
@@ -24,30 +25,61 @@
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-  </head>
-  <body>
-    <div class = "login-container">
-      <h1 class = "text">Login</h1>
+</head>
+<body>
+<div class="login-container">
+    <div id="login">
+        <form class="login-container__window">
+            <h1 class="text">Login</h1>
+            <label for="login-name"><b>Username</b></label>
+            <input class="login-container__window__input" type="text" id="login-name" placeholder="Benutzername"
+                   name="name"
+                   required>
 
-      <div class = "login-container__window">
-      <label for="uname"><b>Username</b></label>
-      <input class = "login-container__window__input" type="text" placeholder="Enter Username" name="uname" required>
+            <label for="login-pw"><b>Password</b></label>
+            <input class="login-container__window__input" type="password" id="login-pw" placeholder="Password"
+                   name="login-pw" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input class = "login-container__window__input" type="password" placeholder="Enter Password" name="psw" required>
+            <button class="login-container__window__submit-btn" type="submit">Login</button>
+            <label>
+                <p>Password vergessen?</p>
+                <p id="register-link">Sie haben noch kein Konto? Registrieren</p>
+                <!--TODO: DB Connection Daten SICHER senden, Frontend Eingriff Schutz-->
 
-      <button class = "login-container__window__submit-btn" type="submit">Login</button>
-      <label>
-        <p>Password vergessen?</p>
-      </label>
-      </div>
-
+            </label>
+        </form>
     </div>
 
 
+    <div id="register" class="hide">
+        <form class="register-container">
+            <h1 class="text">Registrierung</h1>
+            <label for="register-email"><b>E-mail:</b></label>
+            <input class="register-container__input" type="email" id="register-email" placeholder="Email"
+                   name="register-email" required>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
+            <label for="register-name"><b>Name:</b></label>
+            <input class="register-container__input" type="text" id="register-name" placeholder="Benutzername"
+                   name="register-name" required>
+
+            <label for="register-pw"><b>Passwort:</b></label>
+            <input class="register-container__input" type="password" id="register-pw" placeholder="Password"
+                   name="register-pw" required>
+
+            <label for="register-confirm-pw"><b>Passwort bestätigen:</b></label>
+            <input class="register-container__input" type="password" id="register-confirm-pw"
+                   placeholder="Password bestätigen" name="register-confirm-pw" required>
+
+            <button class="register-container__submit-btn" type="submit">Registrieren</button>
+            <label>
+                <p id="login-link">Sie haben bereits ein Konto? Anmelden</p>
+            </label>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
         const loadEl = document.querySelector('#load');
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
@@ -65,26 +97,28 @@
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
         try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+            let app = firebase.app();
+            let features = [
+                'auth',
+                'database',
+                'firestore',
+                'functions',
+                'messaging',
+                'storage',
+                'analytics',
+                'remoteConfig',
+                'performance',
+            ].filter(feature => typeof app[feature] === 'function');
+            loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+            console.error(e);
+            loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
         }
-      });
-    </script>
-  </body>
+    });
+</script>
+<!--<script src="/index.js"></script>-->
+<script src="/LoginRegisterToggle.js"></script>
+</body>
 </html>
 
 <!-- TODO: firebase emulators:start

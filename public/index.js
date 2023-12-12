@@ -6,7 +6,7 @@ import {getDatabase, ref, set, get, child} from "firebase/database";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const firebaseConfig = { // Datenbank-Code
     apiKey: "AIzaSyDT0ReiRbfmE1iYNiseAkExpAmNcU-jJWs",
     authDomain: "kibby-2cd8c.firebaseapp.com",
     projectId: "kibby-2cd8c",
@@ -26,7 +26,7 @@ function writeUserData(userId, name, email, imageUrl) { // setUserData
     const reference = ref(db, 'users/' + userId);
 
     set(reference, {
-        email: email, username: name,  profile_picture: imageUrl
+        email: email, username: name, profile_picture: imageUrl
     });
 }
 
@@ -56,8 +56,6 @@ function getALlUserData() { // getAllData
         console.error(error);
     });
 }
-
-
 
 
 /*

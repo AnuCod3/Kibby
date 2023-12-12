@@ -1,5 +1,5 @@
 html {
-    font-family: Poppins, serif;
+    font-family: Gil, serif;
     font-size: 12px;
     font-weight: 700;
     font-style: normal;
@@ -39,16 +39,22 @@ h1 {
     padding: 60px;
 }
 
-.login-container__window__input {
-    width: 100px;
+.register-container {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.login-container__window__input, .register-container__input {
+    width: 125px;
     height: 23px;
     border-radius: 7px;
-    border: 0.5px solid #ccc;
+    border: 0.5px solid #FFFFFF;
     margin-top: 5px;
     margin-bottom: 20px;
 }
 
-.login-container__window__submit-btn {
+.login-container__window__submit-btn, .register-container__submit-btn {
     width: 100px;
     height: 23px;
 }
@@ -56,6 +62,16 @@ h1 {
 label > b {
     font-size: 15px;
 }
+
+/* ... andere Stilregeln ... */
+
+.hide {
+    display: none;
+    visibility: hidden;
+}
+
+
+
 
 
 
